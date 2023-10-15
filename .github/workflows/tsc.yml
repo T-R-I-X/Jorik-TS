@@ -15,4 +15,4 @@ jobs:
     - name: npm install
       run: npm install
     - name: rbxtsc
-      uses: T-R-I-X/action-rbxtsc@v7
+      uses: T-R-I-X/action-rbxtsc@v8
