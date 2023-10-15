@@ -1,4 +1,4 @@
-![JorikGameLogo]("https://github.com/T-R-I-X/Solis-TS/blob/main/assets/LogoSize100.jpg?raw=true", "The game logo")
+![JorikGameLogo]("https://github.com/T-R-I-X/Solis-TS/blob/main/assets/LogoSize100.png?raw=true", "The game logo")
 
 *A opensource RobloxMMORPG game -*
 
