@@ -25,8 +25,8 @@ Here are the links to some resources
 ## Get started
 1. Clone or download this repo
 ```
-git clone https://github.com/T-R-I-X/Solis-TS
-cd Solis-TS
+git clone https://github.com/T-R-I-X/Jorik-TS
+cd Jorik-TS
 ```
 2. Install the dependencies
 ```
@@ -43,4 +43,4 @@ npm run build
 rojo serve
 ```
 
-[Contributors](https://github.com/T-R-I-X/Solis-TS/graphs/contributors)
+[Contributors](https://github.com/T-R-I-X/Jorik-TS/graphs/contributors)

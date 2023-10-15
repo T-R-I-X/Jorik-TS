@@ -12,12 +12,12 @@
 	],
 	"plugins": [
 		"@typescript-eslint",
-		"roblox-ts",
+		"roblox-ts"
 	],
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:roblox-ts/recommended",
+		"plugin:roblox-ts/recommended"
 	],
 	"rules": {
 	}
