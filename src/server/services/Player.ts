@@ -47,8 +47,8 @@ class GamePlayer implements OnStart {
     }
 
     onStart() {
-        Players.PlayerAdded.Connect(this.addPlayer)
-        Players.PlayerRemoving.Connect(this.removePlayer)
+        Players.PlayerAdded.Connect((p) => this.addPlayer(p))
+        Players.PlayerRemoving.Connect((p) => this.removePlayer(p))
     }
 
     addPlayer(player:Player) {
@@ -56,7 +56,7 @@ class GamePlayer implements OnStart {
             GameStore: new DataStore(STORE_NAME, `${STORE_MASTER_KEY}${player.UserId}`)
         }
         
-        newPlayerData.GameStore.StateChanged.Connect(stateChanged)
+        newPlayerData.GameStore.StateChanged.Connect((state, gameStore) => stateChanged(state, gameStore))
         stateChanged("false", newPlayerData.GameStore)
 
         this.Players.set(player.UserId, newPlayerData)

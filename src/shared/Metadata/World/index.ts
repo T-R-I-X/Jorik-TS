@@ -7,14 +7,13 @@ interface WorldData {
 
 type getReturn = boolean | WorldData;
 
-function instanceOfWorldData(object: any): object is WorldData {
-    return "placeId" in object;
-}
+// eslint-disable-next-line roblox-ts/lua-truthiness
+const instanceOfWorldData = (value: WorldData): value is WorldData => !!value.placeId;
 
-function get(ident: any): getReturn {
-    const module: Instance | undefined = script.FindFirstChild(ident);
+function get(ident: string | number): getReturn {
+    const module = script.FindFirstChild(ident);
     if (module && module.IsA("ModuleScript")) {
-        const data: unknown = require(module);
+        const data = require(module) as WorldData;
         if (instanceOfWorldData(data)) {
             return data;
         } else {
