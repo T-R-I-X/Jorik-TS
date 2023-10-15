@@ -19,8 +19,8 @@ class GameCharacter implements OnStart {
     }
 
     private loaded(player: Player) {
-
-    };
+        print(player.UserId)
+    }
 
     private unloaded(player:Player) {
 
