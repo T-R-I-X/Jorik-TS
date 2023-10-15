@@ -1,5 +1,5 @@
-![JorikGameLogo](/assets/LogoSize100.png "The game logo")
-![example workflow]((https://github.com/T-R-I-X/Jorik-TS/actions/workflows/rbxtsc.yml/badge.svg?event=push))
+![JorikGameLogo](/assets/LogoSize100.png "The game logo")\
+![build status]((https://github.com/T-R-I-X/Jorik-TS/actions/workflows/rbxts.yml/badge.svg?event=push))
 
 *A opensource RobloxMMORPG game -*
 

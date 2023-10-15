@@ -10,8 +10,8 @@ class GameCharacter implements OnStart {
     constructor(private gamePlayer: GamePlayer) {}
 
     onStart() {
-        playerLoaded.Connect(this.loaded)
-        playerUnloaded.Connect(this.unloaded)
+        playerLoaded.Connect(() => this.loaded)
+        playerUnloaded.Connect(() => this.unloaded)
 
         Players.PlayerAdded.Connect((player:Player) => {
             
