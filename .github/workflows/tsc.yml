@@ -12,7 +12,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 18
-    - name: yarn install
-      run: yarn install
+    - name: npm install
+      run: npm install
     - name: rbxtsc
-      uses: icrawl/action-tsc@v1
+      uses: actions/roblox-ts-compiler@v1
