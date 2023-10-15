@@ -3,8 +3,8 @@ on:
   pull_request:
 
 jobs:
-  tsc:
-    name: tsc
+  rbxtsc:
+    name: rbxtsc
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -14,5 +14,5 @@ jobs:
         node-version: 18
     - name: yarn install
       run: yarn install
-    - name: tsc
+    - name: rbxtsc
       uses: icrawl/action-tsc@v1
