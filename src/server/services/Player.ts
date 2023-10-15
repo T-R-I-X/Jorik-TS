@@ -2,7 +2,7 @@
 
 import { OnStart, Service } from "@flamework/core";
 import Signal from "@rbxts/signal";
-import DataStore, { Response } from "@rbxts/suphi-datastore";
+import DataStore, { Response, property } from "@rbxts/suphi-datastore";
 import { Players } from "@rbxts/services";
 
 const playerLoaded = new Signal<(player:Player) => void>();
@@ -24,12 +24,14 @@ interface GameData {
 }
 
 interface PlayerData {
-    GameStore:any
+    GameStore:property<GameData>
 }
 
-const stateChanged = (_state:string, gameStore:any) => {
+const stateChanged = (_state:unknown, gameStore:property<GameData>) => {
     while (gameStore.State === false) {
-        if (gameStore.Open() !== Response.Success) {
+        const response = gameStore.Open() as unknown
+
+        if (response !== Response.Success) {
             warn(`[WARN] GamePlayer: datastore dropped for player (probable cause being datastore is down) retrying in 5 seconds.`)
             task.wait(5)
         }
