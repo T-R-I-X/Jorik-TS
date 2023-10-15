@@ -5,11 +5,13 @@ import { WorldData, get, getReturn } from "../../shared/Metadata/World";
 import { Workspace } from "@rbxts/services";
 import { Events } from "server/network";
 
+type npcNodeArray = Array<{cframe:CFrame, size:Vector3}>
+
 @Service()
 class GameCharacter implements OnStart {
     world: string;
     metadata: WorldData;
-    npcNodes: Map<Folder, any>;
+    npcNodes: Map<Folder, npcNodeArray>;
 
     constructor() {
         const worldData: getReturn = get(game.PlaceId);
@@ -26,7 +28,7 @@ class GameCharacter implements OnStart {
             this.world = this.metadata.name;
         }
 
-        this.npcNodes = new Map<Folder, any>();
+        this.npcNodes = new Map<Folder, npcNodeArray>();
     }
 
     onStart() {
@@ -39,10 +41,10 @@ class GameCharacter implements OnStart {
         if (npcFolder) {
             for (const folder of npcFolder.GetChildren()) {
                 if (folder.IsA("Folder")) {
-                    const data = [];
+                    const data = [] as npcNodeArray;
                     for (const part of folder.GetChildren()) {
                         if (part.IsA("BasePart") || part.IsA("MeshPart")) {
-                            data.push([{ cframe: part.CFrame, size: part.Size }]);
+                            data.push({ cframe: part.CFrame, size: part.Size });
                             part.CanCollide = false;
                         }
                     }
@@ -52,16 +54,23 @@ class GameCharacter implements OnStart {
         }
 
         task.spawn(() => {
-            while (true) {
+            // eslint-disable-next-line roblox-ts/lua-truthiness
+            while (task.wait()) {
                 for (const v of this.npcNodes) {
-                    if (v[1].length < 1) { 
-                        const x = v[1].cframe.p.X + math.random(-v[1].size.X/2, v[1].size.X/2)
-                        const z = v[1].cframe.p.Z + math.random(-v[1].size.Z/2, v[1].size.Z/2)
-                        Events.UpdateNpcMovement.broadcast(x,z)
+                    const folder = v[0]
+                    const data = v[1] as npcNodeArray
+
+                    if ((data.size() - 1) < 1) { 
+                        const cframe = data[0].cframe as CFrame
+                        const size = data[0].size as Vector3
+
+                        const x = cframe.Position.Z + math.random(-size.X/2, size.X/2)
+                        const z = cframe.Position.Z + math.random(-size.Z/2, size.Z/2)
+
+                        print(`[INFO] NPC: updated ${folder.Name}'s position cords to X${x} Z${z}`)
+                        Events.UpdateNpcMovement.broadcast(x,z) // tell all the other clients.
                     }
                 }
-
-                task.wait()
             }
         })
     }
