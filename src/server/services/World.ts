@@ -8,7 +8,7 @@ import { Events } from "server/network";
 type npcNodeArray = Array<{cframe:CFrame, size:Vector3}>
 
 @Service()
-class GameCharacter implements OnStart {
+class World implements OnStart {
     world: string;
     metadata: WorldData;
     npcNodes: Map<Folder, npcNodeArray>;
@@ -76,5 +76,5 @@ class GameCharacter implements OnStart {
     }
 }
 
-export default GameCharacter;
-export { GameCharacter };
+export default World;
+export { World, npcNodeArray };
