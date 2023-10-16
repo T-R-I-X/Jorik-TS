@@ -1,6 +1,7 @@
 interface WorldData {
     placeId: number;
     name: string;
+    loadingThumbId: number;
     levelRequired: number;
     isDiscoverable: boolean;
 }
