@@ -20,7 +20,7 @@ Here are the links to some resources
 
 [Roblox-TS](https://roblox-ts.com)\
 [Flamework](https://fireboltofdeath.dev/docs/flamework)\
-[@rbxts/suphi-datastore](https://www.npmjs.com/package/@rbxts/suphi-datastore)\
+[@rbxts/suphi-datastore](https://www.npmjs.com/package/@rbxts/suphi-datastore)
 
 ## Get started
 1. Clone or download this repo
