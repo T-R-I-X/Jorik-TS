@@ -7,12 +7,15 @@ import { Agent } from "client/modules/Agent";
 
 @Controller()
 class World implements OnStart {
-    npcCache: Array<Agent>
-    npcFolder: Folder
+    private npcCache: Array<Agent>
+    public npcFolder: Folder
+    public hiddenFolder: Folder
 
     constructor() {
         this.npcCache = new Array<Agent>()
         this.npcFolder = ReplicatedStorage.WaitForChild("Mobs") as Folder
+        this.hiddenFolder = new Instance("Folder", ReplicatedStorage)
+        this.hiddenFolder.Name = "HiddenNPCs"
     }
 
     onStart() {
