@@ -64,11 +64,14 @@ class World implements OnStart {
                         const cframe = data[0].cframe as CFrame
                         const size = data[0].size as Vector3
 
-                        const x = cframe.Position.Z + math.random(-size.X/2, size.X/2)
+                        const x = cframe.Position.X + math.random(-size.X/2, size.X/2)
                         const z = cframe.Position.Z + math.random(-size.Z/2, size.Z/2)
 
                         print(`[INFO] NPC: updated ${folder.Name}'s position cords to X${x} Z${z}`)
-                        Events.UpdateNpcMovement.broadcast(x,z) // tell all the other clients.
+                        folder.SetAttribute("Position", new Vector3(x, 0, z)) // tell all the other clients.
+                    } else {
+                        // let client decide where to move on this
+                        Events.UpdateNpcMovement.broadcast(folder, data)
                     }
                 }
             }

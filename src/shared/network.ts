@@ -1,11 +1,10 @@
 import { Networking } from "@flamework/networking";
 
 interface ServerEvents {    
-    UpdateNpcMovement(x:number, z:number):void
-}
+    UpdateNpcMovement(folder:Folder, partData:Array<{ cframe:CFrame, size:Vector3 }>):void}
 
 interface ClientEvents {
-    UpdateNpcMovement(x:number, z:number):void
+    UpdateNpcMovement(folder:Folder, partData:Array<{ cframe:CFrame, size:Vector3 }>):void
 }
 
 interface ServerFunctions {}
