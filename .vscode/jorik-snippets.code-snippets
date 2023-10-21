@@ -1,46 +1,4 @@
 {
-    "Generates a basic service template.": {
-    "prefix": "jservice",
-    "body": [
-      "//@Description Example",
-      "//@Author Name",
-      "",
-      "import { OnStart, Service } from \"@flamework/core\";",
-      "",
-      "@Service()",
-      "class ${TM_FILENAME_BASE} implements OnStart {",
-      "",
-      "    onStart() {",
-      "",
-      "    }",
-      "}",
-      "",
-      "export default ${TM_FILENAME_BASE};",
-      "export { ${TM_FILENAME_BASE} };"
-    ],
-    "description": "Generates a basic service template."
-  },
-  "Generates a basic controller template.": {
-    "prefix": "jcontroller",
-    "body": [
-      "//@Description Example",
-      "//@Author Name",
-      "",
-      "import { OnStart, Controller } from \"@flamework/core\";",
-      "",
-      "@Controller()",
-      "class ${TM_FILENAME_BASE} implements OnStart {",
-      "",
-      "    onStart() {",
-      "        ",
-      "    }",
-      "}",
-      "",
-      "export default ${TM_FILENAME_BASE};",
-      "export { ${TM_FILENAME_BASE} };"
-    ],
-    "description": "Generates a basic controller template."
-  },
   "Generates a basic world metadata template.": {
     "prefix": "jmetaworld",
     "body": [
