@@ -9,11 +9,8 @@
 //////////
 
 import { OnStart, Controller } from "@flamework/core";
-import { ReplicatedStorage, Workspace } from "@rbxts/services";
-import { Agent } from "client/modules/Agent";
-import { Events } from "client/network";
 
-import { ReplicatedStorage, Workspace } from "@rbxts/services";
+import { HttpService, ReplicatedStorage, Workspace } from "@rbxts/services";
 import { Agent } from "client/modules/Agent";
 import { Events } from "client/network";
 
@@ -42,6 +39,17 @@ class World implements OnStart {
                this.watchNPC(folder as Folder) 
             })
         }
+
+        Events.RenderNPC.connect((npcName, initialPos) => this.renderNPC(npcName, initialPos))
+    }
+
+    private renderNPC(npcName:string, initialPos:Vector3) {
+        const npcModel = this.npcFolder.FindFirstChild(npcName) as Model
+
+        const cloneModel = npcModel.Clone()
+        cloneModel.Name = HttpService.GenerateGUID(false)
+        cloneModel.Parent = this.npcFolder
+        cloneModel.AddTag("NPC")
     }
 
     private watchNPC(folder:Folder) {
