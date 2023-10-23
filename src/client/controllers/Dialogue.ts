@@ -1,8 +1,8 @@
 //////////
-// @CLIENT 10/22/2023 23:53:37
+// @CLIENT 10/22/2023 23:54:16
 //
-//  Name: World
-//  Desc: Handles the client world things
+//  Name: Dialogue system
+//  Desc: Handles the client dialogue visualize and input
 //
 //  Revision:
 //      T-R-I-X Create
@@ -11,7 +11,7 @@
 import { OnInit, OnStart, Controller } from "@flamework/core";
 
 @Controller({})
-class World implements OnStart, OnInit {
+class Dialogue implements OnStart, OnInit {
 
     onInit() {
         
@@ -22,5 +22,5 @@ class World implements OnStart, OnInit {
     }
 }
 
-export default World;
-export { World };
+export default Dialogue;
+export { Dialogue };
