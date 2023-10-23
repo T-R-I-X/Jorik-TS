@@ -2,7 +2,7 @@
 
 import { OnStart, Service } from "@flamework/core";
 import { GamePlayer, playerLoaded, playerUnloaded } from "./Player"
-import { Players } from "@rbxts/services";
+import { Players, StarterPlayer } from "@rbxts/services";
 
 
 @Service()
@@ -14,7 +14,12 @@ class GameCharacter implements OnStart {
         playerUnloaded.Connect((p) => this.unloaded(p))
 
         Players.PlayerAdded.Connect((player:Player) => {
-            
+            const hasStarterCharacter = StarterPlayer.FindFirstChild("StarterCharacter")
+
+            if (!hasStarterCharacter) {
+                const starterModel = script.Parent?.Parent?.WaitForChild("assets")
+                // deal with this later for the asset library loading
+            }
         })
     }
 

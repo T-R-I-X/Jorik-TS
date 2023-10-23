@@ -1,12 +1,23 @@
-//@Description Example
-//@Author Name
+//////////
+// @CLIENT 10/22/2023 23:53:37
+//
+//  Name: World
+//  Desc: Handles the client world things
+//
+//  Revision:
+//      T-R-I-X Create
+//////////
 
 import { OnStart, Controller } from "@flamework/core";
 import { ReplicatedStorage, Workspace } from "@rbxts/services";
 import { Agent } from "client/modules/Agent";
 import { Events } from "client/network";
 
-@Controller()
+import { ReplicatedStorage, Workspace } from "@rbxts/services";
+import { Agent } from "client/modules/Agent";
+import { Events } from "client/network";
+
+@Controller({})
 class World implements OnStart {
     private npcCache: Array<Agent>
     private pathNPCCache: Map<Folder, Array<{ cframe:CFrame, size:Vector3 }>>
