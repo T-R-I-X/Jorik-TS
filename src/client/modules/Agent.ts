@@ -53,10 +53,6 @@ class Agent {
         
         this.Animations = new Map<string, AnimationTrack>()
 
-        for (const animation of (Object.keys(animationModule) as Array<{ [key:string]:number }>)) {
-
-        }
-
         //
         const humanoid = this.agent.WaitForChild("Humanoid") as Humanoid;
 
