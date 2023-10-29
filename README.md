@@ -2,7 +2,9 @@
 <img src="./assets/Logo250x333.png" alt="Project Logo"/>
 </p>
 
-[![.github/workflows/rbxts.yml](https://github.com/T-R-I-X/Jorik-TS/actions/workflows/rbxts.yml/badge.svg?branch=main&event=push)](https://github.com/T-R-I-X/Jorik-TS/actions/workflows/rbxts.yml)\
+
+[![build](https://github.com/T-R-I-X/Jorik-TS/actions/workflows/build.yml/badge.svg?branch=main&event=push)](https://github.com/T-R-I-X/Jorik-TS/actions/workflows/build.yml)
+
 *A opensource RobloxMMORPG game written in Typescript for strict type checking.*
 
 ## Features (Planned)
