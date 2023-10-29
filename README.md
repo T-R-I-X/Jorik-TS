@@ -1,4 +1,7 @@
-![JorikGameLogo](/assets/LogoSize100.png "The game logo")\
+<p align="center">
+<img src="./assets/Logo250x333.png" alt="Project Logo"/>
+</p>
+
 [![.github/workflows/rbxts.yml](https://github.com/T-R-I-X/Jorik-TS/actions/workflows/rbxts.yml/badge.svg?branch=main&event=push)](https://github.com/T-R-I-X/Jorik-TS/actions/workflows/rbxts.yml)\
 *A opensource RobloxMMORPG game written in Typescript for strict type checking.*
 
